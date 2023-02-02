@@ -1,0 +1,11 @@
+Model Information:
+* title:	Oil Barrel INA
+* source:	https://sketchfab.com/3d-models/oil-barrel-ina-ff5a5d988991486bae881a6bc837df90
+* author:	pinokio21 (https://sketchfab.com/pinokio21)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Oil Barrel INA" (https://sketchfab.com/3d-models/oil-barrel-ina-ff5a5d988991486bae881a6bc837df90) by pinokio21 (https://sketchfab.com/pinokio21) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
