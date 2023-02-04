@@ -1,0 +1,1 @@
+document.querySelector("#antarctica").components.material.material.map.image.play();
