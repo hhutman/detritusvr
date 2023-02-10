@@ -1,226 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../videocontrols.js"></script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d e t r i t u s</title>
+  </head>
 
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  <script src="../videocontrols.js"></script>
+  <body>
+    <a-scene background="color: #171717">
+      <!-- preloading assets -->
+      <a-assets>
+        <img id="futurecopy" src="../images/futurecopy.png" />
+        <img id="futureface" src="../images/futureface.png" />
+        <img id="pixels" src="../images/pixels.jpg" />
+        <img src="../images/wiredland.jpeg" id="land" />
+        <img id="pinksky" scr="../images/pinksky.jpg" />
 
+        <video
+          id="pink"
+          muted
+          autoplay
+          loop
+          playsinline
+          src="../video/pinkshort.mp4"
+          crossorigin="anonymous"
+        ></video>
+        <video
+          id="bluedots"
+          muted
+          autoplay
+          loop
+          playsinlinesrc="../video/bluedots_short.mp4"
+          crossorigin="anonymous"
+        ></video>
+        <video
+          id="nosound"
+          muted
+          autoplay
+          loop
+          playsinline
+          src="../video/nosound.mp4"
+          crossorigin="anonymous"
+        ></video>
+        <video
+          id="humannosound"
+          muted
+          autoplay
+          loop
+          playsinline
+          src="../video/humannosound.mp4"
+          crossorigin="anonymous"
+        ></video>
+        <video
+          id="silentman"
+          muted
+          autoplay
+          loop
+          playsinline
+          src="../video/silentman.mp4"
+          crossorigin="anonymous"
+        ></video>
 
+        <audio
+          src="../audio/porterplus2.mp3"
+          type="audio/mp3"
+          autoplay
+          loop
+        ></audio>
 
-  <title>d e t r i t u s</title>
-</head>
+        <item id="gun" src="../models/9_mm.glb"></item>
+        <item id="pills" src="../models/pills.glb"></item>
+        <item id="skull" src="../models/skull.glb"></item>
+        <item id="torso" src="../models/female_torso.glb"></item>
+        <item id="hand" src="../models/hand.glb"></item>
+        <item id="candelabra" src="../models/candelabra.glb"></item>
+        <item id="boot" src="../models/boot.glb"></item>
+        <item id="beetle" src="../models/beetle.glb"></item>
+        <item id="computer" src="../models/computer.glb"></item>
+        <item id="tiger" src="../models/saber-toothed.glb"></item>
+        <item id="spongebob" src="../models/spongebob.glb"></item>
+        <item id="2guns" src="../models/2gunonside.glb"></item>
+        <item id="2hands" src="../models/twohands.glb"></item>
+        <item id="computer" src="../models/computer.glb"></item>
+      </a-assets>
 
-<body>
+      <!-- sky entity -->
 
-  <a-scene background: color="pink">
+      <a-sky
+        src="#pink"
+        position="15 0 -1000"
+        scale="-30"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop:true"
+      ></a-sky>
 
-    <!-- preloading assets -->
-    <a-assets>
-      <img id="futurecopy" src="../images/futurecopy.png" />
-      <img id="futureface" src="../images/futureface.png" />
-      <img id="pixels" src="../images/pixels.jpg" />
-      <img src="../images/wiredland.jpeg" id="land" />
-      <img id="pinksky" scr="../images/pinksky.jpg" />
+      <a-sky
+        src="#humannosound"
+        position="15 0 -1000"
+        scale="1 1 1"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop:true"
+      ></a-sky>
 
-      <video id="pink" autoplay="true" loop="true" src="../video/pinkshort.mp4"></video>
-      <video id="bluedots" autoplay="true" loop="true" src="../video/bluedots_short.mp4"></video>
-      <video id="nosound" autoplay="true" loop="true" src="../video/nosound.mp4"></video>
-      <video id="humannosound" autoplay="true" loop="true" src="../video/humannosound.mp4"></video>
-      <video id="silentman" autoplay="true" loop="true" src="../video/silentman.mp4"></video>
+      <!-- other entity -->
 
-      <audio src="../audio/porterplus2.mp3" autoplay preload loop>
-
-      </audio>
-
-      <item id="gun" src="../models/9_mm.glb"></item>
-      <item id="pills" src="../models/pills.glb"></item>
-      <item id="skull" src="../models/skull.glb"></item>
-      <item id="torso" src="../models/female_torso.glb"></item>
-      <item id="hand" src="../models/hand.glb"></item>
-      <item id="candelabra" src="../models/candelabra.glb"></item>
-      <item id="boot" src="../models/boot.glb"></item>
-      <item id="beetle" src="../models/beetle.glb"></item>
-      <item id="computer" src="../models/computer.glb"></item>
-      <item id="tiger" src="../models/saber-toothed.glb"></item>
-      <item id="spongebob" src="../models/spongebob.glb"></item>
-      <item id="2guns" src="../models/2gunonside.glb"></item>
-      <item id="2hands" src="../models/twohands.glb"></item>
-      <item id="computer" src="../models/computer.glb"></item>
-
-    </a-assets>
-
-
-
-    <!-- sky entity -->
-
-    <a-sky src="#pink" position="15 0 -1000" scale="-30"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop:true"></a-sky>
-
-    <a-sky src="#humannosound" position="15 0 -1000" scale="1 1 1"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop:true"></a-sky>
-
-
-
-    <!-- other entity -->
-
-    <!--3d models -->
-    <a-entity gltf-model="#pills" position="0 500 25" scale="8 8 8"
-      animation="property: rotation; to: 300.00 359.999 300.00; dur: 12000; easing: linear; loop: true"
-      shadow="cast: true;">
-    </a-entity>
-
-
-    <a-entity gltf-model="#pills" position="-12 -10 3" scale="1.5"
-      animation="property: rotation; to: 0 359.999 0; dur: 38000; easing: linear; loop: true" shadow="cast: true;">
-    </a-entity>
-
-
-    <a-entity gltf-model="#skull" position="75 45 3" scale="20 20 20"
-      animation="property: rotation; to: 0 359.999 300.999; dur: 12000; easing: linear; loop: true"
-      shadow="cast: true;">
-    </a-entity>
-
-
-    <a-entity gltf-model="#skull" position="75 45 3" scale="20 20 20"
-    animation="property: rotation; to: 0 359.999 300.999; dur: 12000; easing: linear; loop: true"
-    shadow="cast: true;">
-    </a-entity>
-
-  <a-entity gltf-model="#candelabra" position="3900 7 10" scale="8000 8000 8000"
-  animation="property: rotation; to: 300.999 259.999 0; dur: 12000; easing: linear; loop: true"
-  shadow="cast: true;">
-  </a-entity>
-
-  <a-entity gltf-model="#computer" position="200 -70 750" scale="75 75 75"
-  animation="property: rotation; to: 0 359.99 0; dur: 32000; easing: linear; loop: true"
-  shadow="cast: true;">
-  </a-entity>
-
-
-<a-entity gltf-model="#beetle" position="450 -1500 -1550" scale="500 500 500"
-animation="property: rotation; to: 250.000 259.999 250.00; dur: 60000; easing: linear; loop: true"
-shadow="cast: true;">
-</a-entity>
-
-
-<a-entity gltf-model="#spongebob" position="-45 550 -155" 
-animation="property: rotation; to: 100.00 300.00 359.99; dur: 38000; easing: linear; loop: true"
-shadow="cast: true;">
-</a-entity>
-
-
-
- 
-
-     <!-- skull and hand -->
-    <a-entity gltf-model="#skull" position="-50 -10 3" scale="15 15 15"
-    animation="property: rotation; to: 300.999 359.999 0; dur: 12000; easing: linear; loop: true"
-    shadow="cast: true;">
-  </a-entity>
-
-
-  <a-entity gltf-model="#hand" position="-50 -8 3" scale="25 25 25"
-    animation="property: rotation; to: 300.999 359.999 300.999; dur: 12000; easing: linear; loop: true"
-    shadow="cast: false;">
-  </a-entity>
-
-
-    <!-- two balls interaction -->
-
-    <a-entity animation="property: rotation; to: 0 0 360; dur: 4000; easing: linear; loop: true">
-      <a-entity geometry="primitive: sphere" material="color: purple" ; position=5 0 0 sound="src=krasner2.mp3"
-        autoplay=true;>
+      <!--3d models -->
+      <a-entity
+        gltf-model="#pills"
+        position="0 500 25"
+        scale="8 8 8"
+        animation="property: rotation; to: 300.00 359.999 300.00; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
       </a-entity>
-    </a-entity>
 
-    <a-entity animation="property: rotation; to: 360 0 360; dur: 4000; easing: linear; loop: true">
-      <a-entity geometry="primitive: sphere" material="color: purple" ; position=5 0 0 sound="src=krasner2.mp3"
-        autoplay=true;>
+      <a-entity
+        gltf-model="#pills"
+        position="-12 -10 3"
+        scale="1.5"
+        animation="property: rotation; to: 0 359.999 0; dur: 38000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
       </a-entity>
-    </a-entity>
 
+      <a-entity
+        gltf-model="#skull"
+        position="75 45 3"
+        scale="20 20 20"
+        animation="property: rotation; to: 0 359.999 300.999; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-     <!-- spheres and other primitives -->
+      <a-entity
+        gltf-model="#skull"
+        position="75 45 3"
+        scale="20 20 20"
+        animation="property: rotation; to: 0 359.999 300.999; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-     <a-sphere geometry="primitive: sphere;" scale="25 25 25" material="src: #pink"
-     animation="property: rotation; to: 300.00 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;
-       src=" #pink position="-150 25 -150"></a-sphere>
+      <a-entity
+        gltf-model="#candelabra"
+        position="3900 7 10"
+        scale="50000 50000 50000"
+        animation="property: rotation; to: 300.999 259.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-   <a-sphere geometry="primitive: sphere;" scale="750 750 750" material="src: #bluedots"
-     animation="property: rotation; to: 0 359.999 300.00; dur: 12000; easing: linear; loop: true" shadow="cast: true;
-   src=" #bluedots position="3500 1200 2000"></a-sphere>
+      <a-entity
+        gltf-model="#computer"
+        position="200 -70 750"
+        scale="75 75 75"
+        animation="property: rotation; to: 0 359.99 0; dur: 32000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-   <a-sphere geometry="primitive: sphere;" scale="4 4 4" material="src: #humannosound"
-     animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;
-   src=" #humannosound position="40 -15 5"></a-sphere>
+      <a-entity
+        gltf-model="#beetle"
+        position="450 -1500 -1550"
+        scale="500 500 500"
+        animation="property: rotation; to: 250.000 259.999 250.00; dur: 60000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-   <a-sphere geometry="primitive: sphere;" scale="25 25 25" material="src: #pixels"
-     animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;
- src=" #pixels position="-100 45 5"></a-sphere>
+      <a-entity
+        gltf-model="#spongebob"
+        position="-45 550 -155"
+        animation="property: rotation; to: 100.00 300.00 359.99; dur: 38000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-   <a-sphere geometry="primitive: sphere;" scale="25 25 25" material="src: #pixels"
-     animation="property: rotation; to: 300.00 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;
- src=" #pixels position="-100 50 5"></a-sphere>
+      <!-- skull and hand -->
+      <a-entity
+        gltf-model="#skull"
+        position="-50 -10 3"
+        scale="15 15 15"
+        animation="property: rotation; to: 300.999 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-   <a-sphere geometry="primitive: sphere;" scale="25 25 25" material="src: #pixels"
-     animation="property: rotation; to: 0 359.999 300.00; dur: 12000; easing: linear; loop: true" shadow="cast: true;
- src=" #pixels position="-100 55 5"></a-sphere>
+      <a-entity
+        gltf-model="#hand"
+        position="-50 -8 3"
+        scale="25 25 25"
+        animation="property: rotation; to: 300.999 359.999 300.999; dur: 12000; easing: linear; loop: true"
+        shadow="cast: false;"
+      >
+      </a-entity>
 
-    <a-sphere geometry="primitive: sphere;" scale="4 4 4" material="src: #silentman"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;
-    src=" #silentman position="5 -15 5"></a-sphere>
+      <!-- two balls interaction -->
 
-    <a-sphere geometry="primitive: sphere;" position="15 -7 -1000" scale="3 3 3" material="src: #bluedots"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;">
-    </a-sphere>
+      <a-entity
+        animation="property: rotation; to: 0 0 360; dur: 4000; easing: linear; loop: true"
+      >
+        <a-entity
+          geometry="primitive: sphere"
+          material="color: purple"
+          ;
+          position="5"
+          0
+          0
+          sound="src=krasner2.mp3"
+          autoplay="true;"
+        >
+        </a-entity>
+      </a-entity>
 
-    <a-entity geometry="primitive: dodecahedron; width: 1; height: 1" position="12 -5 -900" scale=".830 1.090 .810"
-      material="src: #futureface"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;">
-    </a-entity>
+      <a-entity
+        animation="property: rotation; to: 360 0 360; dur: 4000; easing: linear; loop: true"
+      >
+        <a-entity
+          geometry="primitive: sphere"
+          material="color: purple"
+          ;
+          position="5"
+          0
+          0
+          sound="src=krasner2.mp3"
+          autoplay="true;"
+        >
+        </a-entity>
+      </a-entity>
 
-    <a-entity geometry="primitive: dodecahedron; width: 1; height: 1" position="-12 -5 -900" scale=".830 1.090 .810"
-      material="src: #futureface"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;">
-    </a-entity>
+      <!-- spheres and other primitives -->
 
-    <a-entity geometry="primitive: dodecahedron; width: 1; height: 1" position="-3 0 -1000" scale="1 1.090 .810"
-      material="src: #futureface" animation="property: rotation; : 0 359.999 0; dur: 12000; easing: linear; loop: true"
-      shadow="cast: true;"></a-entity>
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="25 25 25"
+        material="src: #pink"
+        animation="property: rotation; to: 300.00 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+       src="
+        #pink
+        position="-150 25 -150"
+      ></a-sphere>
 
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="750 750 750"
+        material="src: #bluedots"
+        animation="property: rotation; to: 0 359.999 300.00; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+   src="
+        #bluedots
+        position="3500 1200 2000"
+      ></a-sphere>
 
-    <a-entity geometry="primitive: dodecahedron; width: 1; height: 1" position="3 5 0" scale=".830 1.090 .810"
-      material="src: #futureface"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;">
-    </a-entity>
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="4 4 4"
+        material="src: #humannosound"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+   src="
+        #humannosound
+        position="40 -15 5"
+      ></a-sphere>
 
-    <a-entity geometry="primitive: dodecahedron; width: 1; height: 1" position="10 2 0" scale="2 2 .2"
-      material="src: #futureface"
-      animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true" shadow="cast: true;">
-    </a-entity>
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="25 25 25"
+        material="src: #pixels"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+ src="
+        #pixels
+        position="-100 45 5"
+      ></a-sphere>
 
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="25 25 25"
+        material="src: #pixels"
+        animation="property: rotation; to: 300.00 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+ src="
+        #pixels
+        position="-100 50 5"
+      ></a-sphere>
 
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="25 25 25"
+        material="src: #pixels"
+        animation="property: rotation; to: 0 359.999 300.00; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+ src="
+        #pixels
+        position="-100 55 5"
+      ></a-sphere>
 
-    <!-- CAMERA & LIGHTS -->
-    <a-entity camera look-controls wasd-controls position="0 1 5"> </a-entity>
+      <a-sphere
+        geometry="primitive: sphere;"
+        scale="4 4 4"
+        material="src: #silentman"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;
+    src="
+        #silentman
+        position="5 -15 5"
+      ></a-sphere>
 
-    <a-entity light="type: point; castShadow: true" position="3 6 5"></a-entity>
+      <a-sphere
+        geometry="primitive: sphere;"
+        position="15 -7 -1000"
+        scale="3 3 3"
+        material="src: #bluedots"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-sphere>
 
-    <a-entity light="type: ambient; intensity: .9"></a-entity>
+      <a-entity
+        geometry="primitive: dodecahedron; width: 1; height: 1"
+        position="12 -5 -900"
+        scale=".830 1.090 .810"
+        material="src: #futureface"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
+      <a-entity
+        geometry="primitive: dodecahedron; width: 1; height: 1"
+        position="-12 -5 -900"
+        scale=".830 1.090 .810"
+        material="src: #futureface"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
+      <a-entity
+        geometry="primitive: dodecahedron; width: 1; height: 1"
+        position="-3 0 -1000"
+        scale="1 1.090 .810"
+        material="src: #futureface"
+        animation="property: rotation; : 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      ></a-entity>
 
+      <a-entity
+        geometry="primitive: dodecahedron; width: 1; height: 1"
+        position="3 5 0"
+        scale=".830 1.090 .810"
+        material="src: #futureface"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
-  </a-scene>
+      <a-entity
+        geometry="primitive: dodecahedron; width: 1; height: 1"
+        position="10 2 0"
+        scale="2 2 .2"
+        material="src: #futureface"
+        animation="property: rotation; to: 0 359.999 0; dur: 12000; easing: linear; loop: true"
+        shadow="cast: true;"
+      >
+      </a-entity>
 
+      <!-- CAMERA & LIGHTS -->
+      <a-entity camera look-controls wasd-controls position="0 1 5"> </a-entity>
 
+      <a-entity
+        light="type: point; castShadow: true"
+        position="3 6 5"
+      ></a-entity>
 
-
-
-</body>
-
+      <a-entity light="type: ambient; intensity: .9"></a-entity>
+    </a-scene>
+  </body>
 </html>

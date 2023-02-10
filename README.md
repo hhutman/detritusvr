@@ -1,2 +1,0 @@
-# detritusvr
-installation final project
